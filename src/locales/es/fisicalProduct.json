@@ -1,0 +1,22 @@
+{
+  "title": "Dispositivo para uso a pie de cuna",
+  "items": {
+    "capture": {
+      "title": "Captura biométrica neonatal",
+      "desc": "Sensor óptico adaptado a recién nacidos, 500 ppi y área útil clínica."
+    },
+    "ergonomic": {
+      "title": "Diseño ergonómico",
+      "desc": "Pensado para un uso seguro, cómodo y rápido a pie de cuna."
+    },
+    "standards": {
+      "title": "Conectividad y estándares",
+      "desc": "Compatible con HL7-FHIR y DICOM para integrar en sistemas clínicos."
+    },
+    "clinical": {
+      "title": "Entorno clínico seguro",
+      "desc": "Cifrado TLS, permisos y auditoría para cumplir normativas sanitarias."
+    }
+  },
+  "imageAlt": "Dispositivo FootPrintID"
+}

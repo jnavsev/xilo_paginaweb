@@ -1,0 +1,27 @@
+{
+  "title": "Contacto",
+  "subtitle": "Conócenos más",
+  "imageAlt": "Enfermera",
+  "lead": "Rellena el <strong>siguiente formulario</strong> si estás interesado en contactar con nosotros.",
+  "form": {
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Introduce tu nombre"
+    },
+    "email": {
+      "label": "Correo electrónico",
+      "placeholder": "Introduce tu correo electrónico"
+    },
+    "message": {
+      "label": "Mensaje",
+      "placeholder": "Escribe tu mensaje aquí"
+    },
+    "submit": "Enviar",
+    "sending": "Enviando..."
+  },
+  "alerts": {
+    "success": "¡Gracias! Hemos recibido tu mensaje.",
+    "error": "Ups, algo ha fallado al enviar el mensaje. Inténtalo de nuevo."
+  },
+  "recaptchaPlaceholder": "reCAPTCHA"
+}

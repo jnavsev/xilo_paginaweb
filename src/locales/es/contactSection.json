@@ -1,0 +1,12 @@
+{
+  "eyebrow": "Hablemos",
+  "title": "¿Tienes dudas o quieres colaborar?",
+  "lead": "Escríbenos y te contactamos. También podemos agendar una breve llamada.",
+  "chips": {
+    "email": { "label": "Email" },
+    "phone": { "label": "Teléfono" },
+    "location": { "label": "Ubicación", "value": "València, España" }
+  },
+  "cta": "Escríbenos",
+  "imageAlt": "Imagen oficina"
+}

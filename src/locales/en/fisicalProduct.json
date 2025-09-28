@@ -1,0 +1,22 @@
+{
+  "title": "Device for bedside use",
+  "items": {
+    "capture": {
+      "title": "Neonatal biometric capture",
+      "desc": "Optical sensor adapted to newborns, 500 ppi and clinical effective area."
+    },
+    "ergonomic": {
+      "title": "Ergonomic design",
+      "desc": "Designed for safe, comfortable, and quick use at the bedside."
+    },
+    "standards": {
+      "title": "Connectivity and standards",
+      "desc": "Compatible with HL7-FHIR and DICOM to integrate into clinical systems."
+    },
+    "clinical": {
+      "title": "Secure clinical environment",
+      "desc": "TLS encryption, permissions, and auditing to comply with healthcare regulations."
+    }
+  },
+  "imageAlt": "FootPrintID device"
+}

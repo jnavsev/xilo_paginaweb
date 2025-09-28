@@ -1,0 +1,12 @@
+{
+  "brand": "XILO",
+  "home": "Inicio",
+  "product": "Producto",
+  "team": "Equipo",
+  "partners": "Socios",
+  "contact": "Contactar",
+  "aria": {
+    "langSwitch": "Selector de idioma",
+    "openMenu": "Abrir menú"
+  }
+}

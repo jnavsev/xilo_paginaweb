@@ -1,0 +1,29 @@
+{
+  "title": "Nuestros Servicios",
+  "features": {
+    "capture": {
+      "title": "Captura biométrica neonatal",
+      "desc": "Registro de huellas plantares de recién nacidos mediante sensor FBI FAP 30 adaptado a bebés."
+    },
+    "quality": {
+      "title": "Calidad con IA biométrica",
+      "desc": "Evaluación automática de calidad usando NeoFIQ, inspirado en NFIQ1 y adaptado a neonatos."
+    },
+    "standards": {
+      "title": "Publicación en estándares médicos",
+      "desc": "Imágenes biométricas se publican como DICOM y FHIR en sistemas hospitalarios."
+    },
+    "hardware": {
+      "title": "Hardware embebido",
+      "desc": "Diseñado para Raspberry Pi y Toradex iMX8M Plus, integrando pantalla y batería."
+    },
+    "impact": {
+      "title": "Impacto en salud pública",
+      "desc": "Evita errores de identificación y facilita seguimiento pediátrico desde el nacimiento."
+    },
+    "identification": {
+      "title": "Identificación rápida",
+      "desc": "Algoritmos de matching permiten identificar lactantes a partir de una sola huella."
+    }
+  }
+}

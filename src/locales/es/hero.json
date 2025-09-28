@@ -1,0 +1,25 @@
+{
+  "cta": "Ver producto",
+  "slides": [
+    {
+      "alt": "Madre sosteniendo a su bebé en la playa",
+      "title": "Identidad desde el <highlight>primer día de vida</highlight>",
+      "text": "En XILO desarrollamos un sistema biométrico neonatal basado en huellas plantares para garantizar que cada recién nacido tenga una identidad única, segura y accesible."
+    },
+    {
+      "alt": "Recién nacido en brazos",
+      "title": "Seguridad <highlight>desde el inicio</highlight>",
+      "text": "Cada recién nacido cuenta con una identidad confiable, registrada bajo estándares internacionales."
+    },
+    {
+      "alt": "Hospital con equipo biométrico",
+      "title": "Tecnología <highlight>accesible</highlight>",
+      "text": "Nuestro sistema está diseñado para hospitales de todo el mundo, facilitando su implementación."
+    },
+    {
+      "alt": "Pasillo de neonatología en el Hospital La Fe",
+      "title": "Clínica y <highlight>tecnología</highlight>, de la mano",
+      "text": "La unión entre el conocimiento médico del Hospital La Fe y el desarrollo tecnológico de la UPV impulsa un sistema innovador de identificación neonatal."
+    }
+  ]
+}

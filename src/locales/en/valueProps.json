@@ -1,0 +1,29 @@
+{
+  "title": "Our Services",
+  "features": {
+    "capture": {
+      "title": "Neonatal biometric capture",
+      "desc": "Recording newborn plantar prints using an FBI FAP 30 sensor adapted for babies."
+    },
+    "quality": {
+      "title": "Quality with biometric AI",
+      "desc": "Automatic quality evaluation using NeoFIQ, inspired by NFIQ1 and adapted to neonates."
+    },
+    "standards": {
+      "title": "Publication in medical standards",
+      "desc": "Biometric images are published as DICOM and FHIR within hospital systems."
+    },
+    "hardware": {
+      "title": "Embedded hardware",
+      "desc": "Designed for Raspberry Pi and Toradex iMX8M Plus, integrating screen and battery."
+    },
+    "impact": {
+      "title": "Public health impact",
+      "desc": "Prevents identification errors and facilitates pediatric follow-up from birth."
+    },
+    "identification": {
+      "title": "Fast identification",
+      "desc": "Matching algorithms allow infants to be identified from a single print."
+    }
+  }
+}

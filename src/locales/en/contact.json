@@ -1,0 +1,27 @@
+{
+  "title": "Contact",
+  "subtitle": "Get to know us more",
+  "imageAlt": "Nurse",
+  "lead": "Fill in the <strong>form below</strong> if you are interested in contacting us.",
+  "form": {
+    "name": {
+      "label": "Name",
+      "placeholder": "Enter your name"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter your email"
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Write your message here"
+    },
+    "submit": "Send",
+    "sending": "Sending..."
+  },
+  "alerts": {
+    "success": "Thank you! We have received your message.",
+    "error": "Oops, something went wrong while sending your message. Please try again."
+  },
+  "recaptchaPlaceholder": "reCAPTCHA"
+}

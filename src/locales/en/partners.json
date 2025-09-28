@@ -1,0 +1,9 @@
+{
+  "eyebrow": "Working in collaboration",
+  "title": "Our partners",
+  "list": {
+    "upv": { "name": "Polytechnic University of Valencia" },
+    "sabien": { "name": "ITACA-SABIEN Research Group" },
+    "lafe": { "name": "La Fe University and Polytechnic Hospital" }
+  }
+}

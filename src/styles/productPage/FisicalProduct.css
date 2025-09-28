@@ -1,0 +1,137 @@
+/* ===== Fondo degradado + ola inferior ===== */
+.wave-wrap {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(140deg, #22b8cf 0%, #8ce4d4 60%, #e6fff7 100%);
+}
+
+.wave-bottom-product {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: -1px;
+    height: 120px;
+    pointer-events: none;
+}
+.wave-bottom-product svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    fill: #fff;
+}
+
+/* ===== Sección ===== */
+.product-s1 {
+    padding: clamp(32px, 5vw, 60px) clamp(16px, 6vw, 80px)
+    clamp(120px, 10vh, 160px); /* ↑ espacio antes del footer/ola */
+}
+
+.s1-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 28px;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: clamp(24px, 4vw, 48px);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Título con línea debajo ===== */
+.s1-header {
+    text-align: center;
+    margin-bottom: clamp(24px, 5vw, 40px);
+}
+.s1-header h2 {
+    font-size: clamp(22px, 2.6vw, 30px);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: .75rem;
+    position: relative;
+}
+.s1-header h2::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    margin: .6rem auto 0;
+}
+
+/* ===== Cards 2x2 ===== */
+.s1-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(18px, 2.4vw, 28px);
+}
+
+.s1-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: clamp(18px, 2vw, 24px);
+    box-shadow: 0 6px 16px rgba(0,0,0,.08);
+    text-align: left;
+    transition: transform .16s ease, box-shadow .16s ease;
+}
+.s1-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0,0,0,.12);
+}
+
+.s1-icon {
+    width: clamp(48px, 5vw, 64px);
+    height: clamp(48px, 5vw, 64px);
+    border-radius: 50%;
+    background: #8ce4d4;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: clamp(20px, 3vw, 28px);
+    margin-bottom: .6rem;
+}
+
+.s1-card h3 {
+    margin: 0 0 .25rem 0;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 700;
+    color: #0f172a;
+}
+.s1-card p {
+    margin: 0;
+    color: #475569;
+    font-size: clamp(13px, 1.5vw, 15px);
+    line-height: 1.5;
+}
+
+/* ===== Dispositivo ===== */
+.s1-device .s1-frame {
+    border-radius: 20px;
+    background: #fff;
+    padding: clamp(12px, 2vw, 20px);
+    box-shadow: 0 12px 32px rgba(0,0,0,.14);
+}
+.s1-device img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+.s1-device .s1-caption {
+    margin-top: .75rem;
+    color: #475569;
+    font-size: .95rem;
+    text-align: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+    .s1-inner {
+        grid-template-columns: 1fr;
+    }
+    .s1-device { order: -1; }
+}
+@media (max-width: 640px) {
+    .s1-cards { grid-template-columns: 1fr; }
+}

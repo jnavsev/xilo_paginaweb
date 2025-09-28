@@ -1,0 +1,145 @@
+:root {
+    --brand: #8ce4d4;
+    --ink: #111827;
+    --muted: #6b7280;
+    --card: #ffffff;
+    --shadow: 0 12px 40px rgba(16,24,40,.1);
+    --radius: 20px;
+}
+
+.knowus {
+    background: #fff;
+    color: var(--ink);
+    position: relative;
+    overflow-x: clip;
+}
+.container-knowUs {
+    width: min(1200px, 90vw);
+    margin-inline: auto;
+    padding: 0 16px;
+}
+
+.wave-top svg {
+    width: 100%;
+    height: 80px;
+    display: block;
+    fill: #fff;
+}
+
+.ku-hero {
+    text-align: center;
+    padding: 60px 16px 20px;
+}
+.ku-hero h1 {
+    font-size: clamp(40px, 6vw, 64px);
+    color: var(--brand);
+    font-weight: 800;
+    margin: 0;
+}
+.ku-hero .subtitle {
+    color: var(--muted);
+    margin-top: 12px;
+    font-size: clamp(18px, 2.5vw, 24px);
+}
+
+/* Grid de tarjetas horizontales */
+.ku-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* cada tarjeta ocupa todo ancho en pantallas pequeñas */
+    gap: 40px;
+    padding: 40px 0 60px;
+}
+
+.team-card.horizontal {
+    display: flex;
+    flex-direction: row;
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform .15s ease, box-shadow .2s ease;
+}
+
+.team-card.horizontal:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 60px rgba(16,24,40,.15);
+}
+
+.team-card.horizontal .avatar {
+    flex: 0 0 320px; /* ancho fijo para la foto */
+    height: auto;
+    background: #f3f4f6;
+}
+
+.team-card.horizontal .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.team-card.horizontal .info {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-card.horizontal .info h3 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.team-card.horizontal .info .role {
+    margin-top: 8px;
+    color: var(--brand);
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.team-card.horizontal .info .bio {
+    margin-top: 16px;
+    color: #374151;
+    font-size: 16px;
+    line-height: 1.6;
+    white-space: pre-line;
+    flex-grow: 1;
+}
+
+.team-card.horizontal .links {
+    margin-top: 20px;
+    /* si quieres que estén al final de la tarjeta */
+}
+
+.team-card.horizontal .links a {
+    /* estilos para iconos redes */
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    transition: box-shadow .2s, transform .1s;
+}
+
+.team-card.horizontal .links a:hover {
+    box-shadow: 0 0 0 6px var(--brand);
+}
+
+@media (max-width: 900px) {
+    .team-card.horizontal {
+        flex-direction: column;
+    }
+    .team-card.horizontal .avatar {
+        flex: none;
+        width: 100%;
+        aspect-ratio: 4/3;
+    }
+    .team-card.horizontal .info {
+        padding: 16px;
+    }
+}

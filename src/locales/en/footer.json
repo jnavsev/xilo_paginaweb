@@ -1,0 +1,35 @@
+{
+  "brand": {
+    "name": "ITACA Institute",
+    "address": {
+      "line1": "Instituto ITACA,",
+      "line2": "Polytechnic University of Valencia",
+      "line3": "Building 8G, Access B",
+      "line4": "Polytechnic City of Innovation",
+      "line5": "Camino de Vera s/n",
+      "line6": "46022, Valencia",
+      "line7": "Spain"
+    },
+    "directions": "Get directions"
+  },
+  "links": {
+    "ariaLabel": "Site links",
+    "title": "Links",
+    "home": "Home",
+    "product": "Product",
+    "team": "Team",
+    "partners": "Partners",
+    "contact": "Contact"
+  },
+  "cta": {
+    "title": "Let’s talk",
+    "subtitle": "Do you have questions or want to collaborate?",
+    "button": "Write to us"
+  },
+  "bottom": {
+    "rights": "All rights reserved",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies"
+  }
+}

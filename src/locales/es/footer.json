@@ -1,0 +1,35 @@
+{
+  "brand": {
+    "name": "Instituto ITACA",
+    "address": {
+      "line1": "Instituto ITACA,",
+      "line2": "Universitat Politècnica de València",
+      "line3": "Edificio 8G Acceso B",
+      "line4": "Ciudad Politécnica de la Innovación",
+      "line5": "Camino de Vera s/n",
+      "line6": "46022, Valencia",
+      "line7": "España"
+    },
+    "directions": "Cómo llegar"
+  },
+  "links": {
+    "ariaLabel": "Enlaces del sitio",
+    "title": "Enlaces",
+    "home": "Inicio",
+    "product": "Producto",
+    "team": "Equipo",
+    "partners": "Socios",
+    "contact": "Contacto"
+  },
+  "cta": {
+    "title": "Hablemos",
+    "subtitle": "¿Tienes dudas o quieres colaborar?",
+    "button": "Escríbenos"
+  },
+  "bottom": {
+    "rights": "Todos los derechos reservados",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "cookies": "Cookies"
+  }
+}

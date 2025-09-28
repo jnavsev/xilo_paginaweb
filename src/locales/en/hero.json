@@ -1,0 +1,25 @@
+{
+  "cta": "See product",
+  "slides": [
+    {
+      "alt": "Mother holding her baby on the beach",
+      "title": "Identity from the <highlight>first day of life</highlight>",
+      "text": "At XILO we are developing a neonatal biometric system based on plantar prints to ensure every newborn has a unique, secure and accessible identity."
+    },
+    {
+      "alt": "Newborn in arms",
+      "title": "Security <highlight>from the start</highlight>",
+      "text": "Every newborn has a reliable identity, registered under international standards."
+    },
+    {
+      "alt": "Hospital with biometric equipment",
+      "title": "Accessible <highlight>technology</highlight>",
+      "text": "Our system is designed for hospitals around the world, making implementation easy."
+    },
+    {
+      "alt": "Neonatology corridor at La Fe Hospital",
+      "title": "Clinic and <highlight>technology</highlight>, hand in hand",
+      "text": "The combination of La Fe Hospital’s medical expertise and UPV’s technological development drives an innovative neonatal identification system."
+    }
+  ]
+}

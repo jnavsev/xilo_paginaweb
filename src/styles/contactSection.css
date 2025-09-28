@@ -1,0 +1,142 @@
+:root {
+    --grad-start:#43c6b9;
+    --grad-end:#b8f3e8;
+    --footer-radius: var(--radius-xxl, 28px);
+}
+
+/* ===== Wrapper con degradado y ola superior ===== */
+.contact-wrap {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(140deg, #22b8cf 0%, #8ce4d4 60%, #e6fff7 100%);
+}
+
+/* Ola superior */
+.wave-top-contact {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    line-height: 0;
+}
+.wave-top-contact svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform: rotate(180deg);
+    fill: #fff;
+}
+
+/* ===== Sección de contenido ===== */
+.contact-band {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    padding: clamp(120px, 12vw, 160px) 0 calc(var(--footer-radius) + 80px);
+    margin-bottom: 0;
+    min-height: 480px; /* un poco más de altura */
+}
+
+/* Layout interno */
+.band-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(32px, 6vw, 72px);
+    align-items: center;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-weight: 600;
+    color: #0b746a;
+    margin-bottom: .5rem;
+}
+
+.band-left h2 {
+    color: #fff;
+    font-size: clamp(34px, 5vw, 64px);
+    line-height: 1.06;
+    margin: 0 0 .75rem 0;
+}
+
+.lead {
+    color:#e8fffb;
+    max-width:46ch;
+    margin-bottom:1.2rem;
+}
+
+/* Chips */
+.chips {
+    display:grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap:12px;
+}
+.chip {
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(6px);
+    border-radius: 16px;
+    padding: 12px 14px;
+    box-shadow: 0 8px 28px rgba(15,23,42,.12);
+}
+.chip span {
+    display:block;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:#475569;
+    margin-bottom:4px;
+}
+.chip a {
+    color:#0f172a;
+    font-weight:700;
+    text-decoration:none;
+}
+
+/* CTA */
+.cta-row {
+    margin-top: 20px;
+    margin-bottom: clamp(12px, 2vh, 20px);
+}
+.btn-cta {
+    display: inline-block;
+    padding: 14px 26px;
+    border-radius: 999px;
+    background: #42cbb8;
+    color: #083b36;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 1rem;
+    box-shadow: 0 10px 24px rgba(8,59,54,.22);
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.btn-cta:hover {
+    background: #2fb2a0;
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px rgba(8,59,54,.26);
+}
+
+/* Imagen con efecto */
+.contact-hero-img {
+    display: block;
+    width: 100%;
+    max-width: 620px;
+    height: auto;
+    border-radius: 60px;
+    object-fit: cover;
+
+    margin-top: -40px;   /* se mete un poco en la ola */
+    margin-bottom: 80px; /* más espacio con el footer */
+
+    box-shadow: 0 24px 60px rgba(0,0,0,.25);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+    .band-inner { grid-template-columns: 1fr; }
+    .chips { grid-template-columns: 1fr; }
+    .contact-hero-img { margin: 20px auto 60px; }
+}

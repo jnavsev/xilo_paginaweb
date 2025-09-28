@@ -1,0 +1,9 @@
+{
+  "eyebrow": "Trabajo en colaboración",
+  "title": "Nuestros socios",
+  "list": {
+    "upv": { "name": "Universitat Politècnica de València" },
+    "sabien": { "name": "Grupo de Investigación ITACA-SABIEN" },
+    "lafe": { "name": "Hospital Universitari i Politècnic La Fe" }
+  }
+}

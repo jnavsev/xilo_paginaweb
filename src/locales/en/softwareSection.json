@@ -1,0 +1,22 @@
+{
+  "title": "Innovating in child biometrics",
+  "imageAlt": "Analyzed footprint FootPrintID",
+  "items": {
+    "identification": {
+      "title": "Fast identification",
+      "desc": "Biometric matching from a single neonatal plantar print."
+    },
+    "ai": {
+      "title": "Embedded AI",
+      "desc": "Smart processing on the device, with AI algorithms executed in real time."
+    },
+    "impact": {
+      "title": "Public health impact",
+      "desc": "Prevents identification errors and facilitates pediatric follow-up."
+    },
+    "validation": {
+      "title": "Clinical validation",
+      "desc": "Trials in collaboration with leading hospitals."
+    }
+  }
+}

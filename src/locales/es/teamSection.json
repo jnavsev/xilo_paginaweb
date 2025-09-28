@@ -1,0 +1,22 @@
+{
+  "eyebrow": "Quién está detrás",
+  "title": { "line1": "Nuestro", "line2": "equipo" },
+  "cta": "Conoce al equipo",
+  "members": {
+    "marta": {
+      "name": "Marta Aguar",
+      "role": "Clinical Lead",
+      "desc": ""
+    },
+    "antonio": {
+      "name": "Antonio Martínez",
+      "role": "Business Lead",
+      "desc": ""
+    },
+    "juan": {
+      "name": "Juan Navarro",
+      "role": "Technical Lead",
+      "desc": ""
+    }
+  }
+}

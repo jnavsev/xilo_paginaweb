@@ -1,0 +1,129 @@
+/* ========= Fondo y ola ========= */
+.wave-wrap{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(140deg,#22b8cf 0%,#8ce4d4 60%,#e6fff7 100%);
+    padding-block: clamp(28px,6vw,60px);
+}
+
+.wave-bottom-product{
+    position:absolute; left:0; right:0; bottom:-1px;
+    height:120px; pointer-events:none; z-index:0;
+}
+.wave-bottom-product svg{ width:100%; height:100%; display:block; fill:#fff; }
+
+/* ========= Hero ========= */
+.product-hero{
+    padding-bottom: clamp(110px, 16vw, 170px); /* hueco para la ola */
+}
+
+.product-inner{
+    position:relative; z-index:1;
+    max-width:1200px; margin:0 auto;
+    display:grid; grid-template-columns:1.05fr .95fr;
+    gap:clamp(20px,4vw,64px); align-items:center;
+    padding-inline: 20px; /* colchón lateral para móvil */
+    box-sizing: border-box;
+}
+
+/* ========= Texto ========= */
+.eyebrow{
+    display:inline-block; color:rgba(255,255,255,.85); font-weight:700;
+    letter-spacing:.12em; font-size:.78rem; margin-bottom:.75rem; text-transform:uppercase;
+}
+.product-title{
+    color:#fff; font-weight:800; font-size:clamp(28px,7vw,64px);
+    line-height:1.05; margin:0 0 .75rem 0;
+}
+.product-sub{
+    color:rgba(255,255,255,.95); font-size:clamp(15px,1.7vw,18px);
+    line-height:1.6; max-width:46ch; margin:0 0 1.25rem 0;
+}
+.btn-cta{
+    display:inline-block; background:#fff; color:#0b3b3f; font-weight:700; text-decoration:none;
+    padding:.8rem 1.2rem; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.12);
+    transition:transform .12s ease, box-shadow .12s ease, background .2s ease;
+}
+.btn-cta:hover{ transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.16); background:#f7f7f7; }
+
+/* ========= Imagen (tarjeta) ========= */
+.product-media{
+    justify-self:end;
+    width:min(560px,100%);
+}
+
+.media-card{
+    position:relative; overflow:hidden;
+    background:#ffffff;
+    border-radius:20px;
+    box-shadow:0 24px 60px rgba(0,0,0,.18), 0 4px 14px rgba(0,0,0,.10);
+}
+.media-card::after{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(90% 90% at 10% 10%, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 60%);
+    pointer-events:none;
+}
+/* Imagen llena la tarjeta sin “bandas” */
+.media-card img{
+    display:block; width:100%; height:auto;
+    aspect-ratio: 16 / 13;     /* ajusta a la proporción real si es otra */
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ========= Responsivo ========= */
+@media (max-width: 960px){
+    .product-inner{
+        grid-template-columns:1fr;
+        gap:24px;
+        padding-inline: 16px;  /* más estrecho */
+    }
+
+    /* IMAGEN centrada y sin desbordar */
+    .product-media{
+        order:-1;
+        justify-self:center;
+        width: min(420px, 100%);
+        max-width: calc(100vw - 32px);   /* respeta padding lateral */
+        margin-inline: auto;
+    }
+    .media-card{ border-radius:16px; box-shadow:0 14px 28px rgba(0,0,0,.14); }
+    .media-card img{
+        aspect-ratio: 16 / 16;
+        object-fit: cover;
+    }
+
+    /* TEXTO alineado a la izquierda */
+    .product-copy{
+        text-align:left;
+        margin-inline:auto;
+        max-width: 640px;
+        width: 100%;
+    }
+    .product-title{ font-size: clamp(26px, 8.5vw, 42px); }
+    .product-sub{
+        max-width: 60ch;
+        font-size: 15.5px;
+    }
+
+    /* BOTÓN centrado dentro del degradado */
+    .product-copy .btn-cta{
+        display:block;
+        width: min(320px, 90%);
+        margin: 16px auto 0;             /* centrado */
+        text-align: center;
+    }
+
+    /* Ola justo debajo del botón */
+    .wave-bottom-product{ height: 200px; }
+    .product-hero{ padding-bottom: calc(200px + 80px); }
+}
+
+@media (max-width: 480px){
+    .product-title{ font-size: clamp(24px, 9vw, 36px); }
+    .product-sub{ font-size: 15px; }
+    .media-card{ border-radius:14px; }
+
+    .wave-bottom-product{ height: 200px; }
+    .product-hero        { padding-bottom: calc(200px + 60px); }  /* <-- X + margen */
+}

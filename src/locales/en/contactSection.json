@@ -1,0 +1,12 @@
+{
+  "eyebrow": "Let’s talk",
+  "title": "Do you have questions or want to collaborate?",
+  "lead": "Write to us and we’ll get back to you. We can also schedule a short call.",
+  "chips": {
+    "email": { "label": "Email" },
+    "phone": { "label": "Phone" },
+    "location": { "label": "Location", "value": "Valencia, Spain" }
+  },
+  "cta": "Write to us",
+  "imageAlt": "Office image"
+}

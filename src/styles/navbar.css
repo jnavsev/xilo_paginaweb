@@ -1,0 +1,90 @@
+/* ============ NAVBAR TRANSPARENTE SOBRE HERO ============ */
+.navbar{
+    position:absolute; top:0; left:0; right:0; z-index:100;
+    background:linear-gradient(to bottom, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 100%);
+    border-bottom:none; transition:background .3s ease, box-shadow .3s ease;
+}
+.navbar.solid{
+    position:fixed;
+    background:rgba(17,17,17,.9);
+    backdrop-filter:blur(6px);
+    box-shadow:0 4px 20px rgba(0,0,0,.25);
+}
+
+.nav-container{
+    max-width:1200px; margin:0 auto;
+    padding:.7rem 1rem;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:1rem;
+}
+
+/* marca */
+.brand{display:inline-flex; align-items:center; gap:.6rem; text-decoration:none; color:inherit;}
+.brand-logo{width:34px; height:34px; border-radius:10px; background:#000; display:inline-block;}
+.brand-name{font-weight:700; color:#fff;}
+
+/* enlaces centro */
+.nav-links{
+    display:flex; align-items:center; gap:1rem;
+}
+.nav-links a{
+    text-decoration:none; font-size:.95rem;
+    padding:.35rem .55rem; border-radius:8px; line-height:1;
+}
+/* Solo los enlaces normales en blanco (no el botón) */
+.nav-links a:not(.btn-cta){ color:#fff; }
+.nav-links a:not(.btn-cta):hover{ background:rgba(255,255,255,.15); }
+
+/* derecha: idioma + burger */
+.nav-actions{ display:flex; align-items:center; gap:.6rem; }
+
+/* idioma */
+.lang-switch{ display:inline-flex; padding:2px; border:1px solid rgba(255,255,255,.4); border-radius:999px; background:transparent; }
+.lang-btn{ border:0; background:transparent; padding:.35rem .6rem; border-radius:999px; font-size:.82rem; cursor:pointer; color:#fff; }
+.lang-btn:hover{ background:rgba(255,255,255,.12); }
+.lang-btn.active{ background:#fff; color:#000; }
+
+/* ============ BOTONES ============ */
+/* Botón global (como antes) */
+.btn-cta{
+    text-decoration:none;
+    font-size:.9rem;
+    font-weight:600;
+    background:#fff;
+    color:#111;
+    padding:.55rem .9rem;
+    border-radius:10px;
+}
+.btn-cta:hover{ background:#f5f5f5; }
+.btn-cta:focus{ outline:2px solid #fff; outline-offset:2px; }
+
+/* Separación del botón Contactar respecto a "Socios" cuando está en la barra */
+.nav-links .btn-cta{ margin-left:.5rem; }
+
+/* burger móvil */
+.burger{ display:none; position:relative; width:38px; height:34px; border:1px solid rgba(255,255,255,.4); border-radius:10px; background:transparent; cursor:pointer; }
+.burger span{ position:absolute; left:9px; right:9px; height:2px; background:#fff; transition:.2s; }
+.burger span:nth-child(1){ top:10px; } .burger span:nth-child(2){ top:16px; } .burger span:nth-child(3){ top:22px; }
+
+/* drawer móvil */
+.nav-drawer{
+    display:none; border-top:1px solid rgba(255,255,255,.15);
+    background:rgba(0,0,0,.6); backdrop-filter:blur(6px);
+    padding:.6rem 1rem 1rem;
+}
+.nav-drawer a{ display:block; padding:.6rem 0; color:#fff; text-decoration:none; }
+.nav-drawer a:hover{ text-decoration:underline; }
+.drawer-bottom{ margin-top:.6rem; display:grid; gap:.6rem; }
+
+/* Botón ancho del drawer (asegura texto oscuro) */
+.btn-cta.full{
+    display:block; text-align:center;
+    background:#fff; color:#111; font-weight:600; padding:.7rem 1rem; border-radius:10px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 960px){
+    .nav-links{ display:none; } /* ocultamos enlaces del centro */
+    .burger{ display:inline-flex; align-items:center; justify-content:center; }
+    .nav-drawer.open{ display:block; }
+}

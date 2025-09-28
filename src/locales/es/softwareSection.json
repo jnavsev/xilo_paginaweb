@@ -1,0 +1,22 @@
+{
+  "title": "Innovando en biometría infantil",
+  "imageAlt": "Huella analizada FootPrintID",
+  "items": {
+    "identification": {
+      "title": "Identificación rápida",
+      "desc": "Matching biométrico a partir de una sola huella plantar neonatal."
+    },
+    "ai": {
+      "title": "IA embebida",
+      "desc": "Procesamiento inteligente en el dispositivo, con algoritmos de IA ejecutados en tiempo real."
+    },
+    "impact": {
+      "title": "Impacto en salud pública",
+      "desc": "Previene errores de identificación y facilita seguimiento pediátrico."
+    },
+    "validation": {
+      "title": "Validación clínica",
+      "desc": "Ensayos en colaboración con hospitales de referencia."
+    }
+  }
+}

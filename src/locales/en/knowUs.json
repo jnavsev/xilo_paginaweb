@@ -1,0 +1,24 @@
+{
+  "title": "Team",
+  "subtitle": "People who make this project possible",
+  "aria": {
+    "socialOf": "{{name}}’s social profiles"
+  },
+  "team": {
+    "marta": {
+      "name": "Marta Aguar Carrascosa",
+      "role": "Clinical Lead",
+      "bio": "Marta works at Hospital Universitari i Politècnic La Fe, where she combines clinical practice with the management of healthcare innovation projects. Her experience includes coordinating multidisciplinary teams, deploying technological solutions in hospital environments, and improving patient-centred care processes.\n\nShe has taken part in applied research initiatives and collaborative innovation programmes between hospitals and universities, focusing on transferring knowledge into clinical practice. With a close and solutions-oriented profile, she works to ensure that technological innovation has a direct impact on care quality and patient safety."
+    },
+    "antonio": {
+      "name": "Antonio Martínez Millana",
+      "role": "Business Lead",
+      "bio": "Antonio specialises in developing digital solutions for health and technological innovation. His background combines product design with the implementation of robust data architectures, enabling complex information to be turned into actionable insights for decision-making.\n\nWinner of the 49K competition at Universitat Politècnica de València in 2011, he has continued his career through entrepreneurship and innovation programmes such as IESE Business School Summer Schools, EIT Health initiatives and the Cambridge Innovation Center. He also mentors students in innovation events, such as the iDays organised by IDEAS UPV."
+    },
+    "juan": {
+      "name": "Juan Navarro Sevilla",
+      "role": "Technical Lead",
+      "bio": "Juan is an engineer specialised in building solutions that combine hardware, software and artificial intelligence applied to healthcare. His experience ranges from embedded systems and digital platforms to the integration of biomedical standards, with a focus on socially impactful projects.\n\nHe has participated in EIT Health innovation programmes and international initiatives in digital health and medical technology. He collaborates in multidisciplinary environments where engineering meets clinical practice, bringing a strategic vision to translate technological research into practical solutions."
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "title": "Equipo",
+  "subtitle": "Personas que hacen posible el proyecto",
+  "aria": {
+    "socialOf": "Redes de {{name}}"
+  },
+  "team": {
+    "marta": {
+      "name": "Marta Aguar Carrascosa",
+      "role": "Clinical Lead",
+      "bio": "Marta desarrolla su labor en el Hospital Universitari i Politècnic La Fe, donde combina la práctica clínica con la gestión de proyectos de innovación sanitaria. Su experiencia abarca la coordinación de equipos multidisciplinares, la implantación de soluciones tecnológicas en el entorno hospitalario y la mejora de procesos asistenciales orientados al paciente.\n\nHa participado en diversas iniciativas de investigación aplicada y en programas de innovación colaborativa entre hospitales y universidades, aportando una visión centrada en la transferencia de conocimiento hacia la práctica clínica. Con un perfil cercano y resolutivo, trabaja para que la innovación tecnológica se traduzca en un impacto directo en la calidad asistencial y la seguridad de los pacientes."
+    },
+    "antonio": {
+      "name": "Antonio Martínez Millana",
+      "role": "Business Lead",
+      "bio": "Antonio es especialista en el desarrollo de soluciones digitales orientadas a la salud y la innovación tecnológica. Su experiencia combina el diseño de producto con la implementación de arquitecturas de datos robustas, lo que permite transformar información compleja en conocimiento útil para la toma de decisiones.\n\nGanador del concurso 49K de la Universitat Politècnica de València en 2011, ha continuado su trayectoria participando en programas de emprendimiento e innovación como los Summer Schools de IESE Business School, las iniciativas de EIT Health y el Cambridge Innovation Center. Además, colabora como mentor en jornadas de innovación para estudiantes, como los iDays organizados por IDEAS UPV."
+    },
+    "juan": {
+      "name": "Juan Navarro Sevilla",
+      "role": "Technical Lead",
+      "bio": "Juan es ingeniero especializado en el desarrollo de soluciones que combinan hardware, software e inteligencia artificial aplicados al ámbito de la salud. Su experiencia abarca desde el diseño de sistemas embebidos y plataformas digitales hasta la integración de estándares biomédicos, con un enfoque en proyectos de impacto social.\n\nHa participado en programas de innovación de EIT Health y en iniciativas internacionales orientadas a la salud digital y la tecnología médica. Además, colabora en entornos multidisciplinares donde la ingeniería se une con la práctica clínica, aportando una visión estratégica para transformar la investigación tecnológica en soluciones aplicables."
+    }
+  }
+}
