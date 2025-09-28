@@ -8,7 +8,7 @@ export default function VideoSection() {
                 <div className="s3-block s3-block-video">
                     <div className="s3-media s3-media-video">
                         <iframe
-                            src="https://www.youtube.com/watch?v=dmP7DabrHSM"
+                            src="https://www.youtube.com/embed/dmP7DabrHSM"
                             title="Vídeo demostrativo"
                             loading="lazy"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
