@@ -12,10 +12,16 @@ export default function Footer() {
             <div className="footer-inner">
                 {/* Columna 1: Logo + Dirección */}
                 <div className="f-col f-brand">
-                    <div className="f-logo">
-                        <div className="f-logo-mark" aria-hidden="true">A</div>
-                        <div className="f-logo-text">{t("brand.name")}</div>
-                    </div>
+                    <NavLink to="/" className="f-logo" aria-label={t("brand.name")}>
+                        <img
+                            src="/assets/logo/logo-xilo-footer.png"
+                            alt={t("brand.name")}
+                            className="f-logo-img"
+                            loading="lazy"
+                            width="160"
+                            height="40"
+                        />
+                    </NavLink>
 
                     <address className="f-address">
                         <strong>{t("brand.address.line1")}</strong><br />
@@ -75,9 +81,7 @@ export default function Footer() {
 
             {/* Línea inferior */}
             <div className="footer-bottom">
-                <p>
-                    © {new Date().getFullYear()} XILO · UPV — {t("bottom.rights")}
-                </p>
+                <p>© {new Date().getFullYear()} XILO · UPV — {t("bottom.rights")}</p>
                 <div className="f-bottom-links">
                     <NavLink to="/privacy">{t("bottom.privacy")}</NavLink>
                     <NavLink to="/terms">{t("bottom.terms")}</NavLink>

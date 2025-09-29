@@ -32,7 +32,7 @@
 
 /* LOGO: ocupar toda la altura del navbar */
 .brand img.brand-logo{
-    height: 75%;     /* 👈 ocupa todo el alto del navbar */
+    height: 250%;     /* 👈 ocupa todo el alto del navbar */
     width:auto; display:block;
     object-fit:contain;
     background:transparent;

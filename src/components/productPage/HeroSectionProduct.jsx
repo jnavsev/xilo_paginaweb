@@ -11,6 +11,7 @@ export default function HeroStatic() {
                 className="product-hero__img"
             />
             <div className="product-hero__overlay" />
+
             <div className="product-hero__content">
                 <h1>
                     <Trans

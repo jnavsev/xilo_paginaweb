@@ -11,7 +11,7 @@ import "./styles/homePage/product.css";
 import "./styles/homePage/cards.css";
 import "./styles/homePage/TeamSection.css";
 import "./styles/homePage/partners.css";
-import "./styles/homePage/footerSection.css";
+import "./styles/footerSection.css";
 import "./styles/contactSection.css";
 import "./styles/contactPage/contact.css";
 import "./styles/knowusPage/knowus.css";

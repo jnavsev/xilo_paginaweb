@@ -83,25 +83,26 @@
     flex-wrap: wrap;
 }
 
-.btn-primary {
-    background: #111;
-    color: #fff;
-    padding: .6rem 1rem;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
-}
-.btn-primary:hover { background: #000; }
-
-.btn-secondary {
-    border: 1px solid #ccc;
+/* === Botones del HERO idénticos al CTA de ProductSection === */
+.hero-buttons .btn-primary,
+.hero-buttons .btn-secondary {
     background: #fff;
-    color: #111;
-    padding: .6rem 1rem;
-    border-radius: 10px;
+    color: #0b3b3f;
+    font-weight: 700;
     text-decoration: none;
+    padding: .8rem 1.2rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.12);
+    border: none;
+    transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
 }
-.btn-secondary:hover { background: #f5f5f5; }
+
+.hero-buttons .btn-primary:hover,
+.hero-buttons .btn-secondary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0,0,0,.16);
+    background: #43c6bb;
+}
 
 /* Flechas de navegación */
 .hero-arrow {

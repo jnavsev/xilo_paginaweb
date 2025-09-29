@@ -11,30 +11,33 @@
     background: linear-gradient(140deg, #22b8cf 0%, #8ce4d4 60%, #e6fff7 100%);
 }
 
-/* Ola superior */
+/* Ola superior (corregida para no dejar línea) */
 .wave-top-contact {
-    position: relative;
-    width: 100%;
-    height: 120px;
+    position: absolute;
+    top: -2px;             /* solapa 2px para tapar el hueco */
+    left: 0;
+    right: 0;
+    height: 124px;         /* un poco más alta para el solape */
     overflow: hidden;
     line-height: 0;
+    z-index: 1;
 }
 .wave-top-contact svg {
     width: 100%;
     height: 100%;
     display: block;
-    transform: rotate(180deg);
     fill: #fff;
+    transform: rotate(180deg) translateY(1px); /* evita antialiasing */
 }
 
 /* ===== Sección de contenido ===== */
 .contact-band {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* por encima de la ola */
     background: transparent;
-    padding: clamp(120px, 12vw, 160px) 0 calc(var(--footer-radius) + 80px);
+    padding: calc(120px + 24px) 0 calc(var(--footer-radius) + 80px);
     margin-bottom: 0;
-    min-height: 480px; /* un poco más de altura */
+    min-height: 480px;
 }
 
 /* Layout interno */
@@ -140,3 +143,6 @@
     .chips { grid-template-columns: 1fr; }
     .contact-hero-img { margin: 20px auto 60px; }
 }
+
+
+

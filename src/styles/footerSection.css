@@ -1,0 +1,217 @@
+/* =========================
+   FOOTER (estilo Simprints, contenido Argos)
+   ========================= */
+:root{
+    --footer-bg: #2f2f2f;
+    --footer-fg: #ffffff;
+    --footer-muted: rgba(255,255,255,.75);
+    --footer-line: rgba(255,255,255,.15);
+    --brand: #8ce4d4;   /* turquesa principal */
+    --brand-2: #0dd3c7; /* variante */
+    --radius-xxl: 28px;
+}
+
+/* Wrapper con esquinas redondeadas superiores */
+.footer-wrap{
+    background: var(--footer-bg);
+    color: var(--footer-fg);
+    border-top-left-radius: var(--radius-xxl);
+    border-top-right-radius: var(--radius-xxl);
+    overflow: hidden;
+    position: relative;
+    /* pegar al bloque anterior y evitar línea */
+    margin-top: -12px; /* más suave que -40px */
+    z-index: 0;
+}
+
+/* Tapa superior para que bajo las esquinas nunca se vea el fondo de la página */
+.footer-wrap::before{
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    top: calc(-1 * var(--radius-xxl));
+    height: var(--radius-xxl);
+    background: var(--footer-bg);
+    border-top-left-radius: var(--radius-xxl);
+    border-top-right-radius: var(--radius-xxl);
+    z-index: -1;
+}
+
+/* GRID principal: 3 columnas equilibradas */
+.footer-inner{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(28px, 5vw, 56px) clamp(16px, 4vw, 28px);
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1fr; /* equilibrado con logo+dirección */
+    gap: clamp(22px, 3.2vw, 40px);
+    align-items: start;
+    position: relative;
+}
+
+/* Líneas divisorias verticales sutiles */
+.footer-inner > .f-col{
+    position: relative;
+}
+.footer-inner > .f-col:not(:first-child)::before{
+    content:"";
+    position:absolute; top:8px; left:-16px;
+    width:1px; height:32px;
+    background: var(--footer-line);
+    opacity:.9;
+}
+
+/* ========== Columna 1: Marca + Dirección ========== */
+.f-brand .f-logo{
+    display:flex; align-items:center; gap:.65rem; margin-bottom:.75rem;
+}
+
+/* Logo con imagen */
+.f-logo-img{
+    height: 120px;       /* ajusta si quieres más grande/pequeño */
+    width: auto;
+    display: block;
+    object-fit: contain;
+    /* Opcional: realce sutil si el logo es claro */
+    /* filter: drop-shadow(0 0 1px rgba(255,255,255,.15)); */
+}
+
+/* Si ya no usas el bloque antiguo del logo en letra, lo ocultas */
+.f-logo-mark{ display:none; }
+
+.f-logo-text{
+    font-weight: 800;
+    font-size: 1.06rem;
+    letter-spacing:.01em;
+}
+
+.f-address{
+    font-style: normal;
+    color: var(--footer-muted);
+    line-height: 1.55;
+    margin: .4rem 0 1rem;
+    font-size: .95rem;
+}
+
+/* Contacto: mapa, email, teléfono */
+.f-contact{
+    list-style:none; padding:0; margin:0; display:grid; gap:.45rem;
+}
+.f-contact li{
+    display:flex; align-items:center; gap:.6rem; color:var(--footer-fg);
+}
+.f-contact a{
+    color:var(--footer-fg); text-decoration:none; border-bottom: 1px solid transparent;
+}
+.f-contact a:hover{
+    text-decoration:none; border-bottom-color: var(--footer-fg);
+}
+.f-contact svg{
+    opacity:.95; flex-shrink:0;
+}
+
+/* ========== Columna 2: Enlaces del sitio ========== */
+.f-links h3,
+.f-cta h3{
+    font-size:1.08rem; letter-spacing:.02em; margin:0 0 .85rem;
+}
+.f-links ul{ list-style:none; padding:0; margin:0; display:grid; gap:.55rem; }
+.f-links a{
+    color: var(--brand);
+    text-decoration: none;
+    font-weight: 700;
+    text-underline-offset: 2px;
+}
+.f-links a:hover{ text-decoration: underline; }
+
+/* ========== Columna 3: CTA (botones pill) ========== */
+.f-cta{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 100%;
+}
+.f-cta p{
+    color: var(--footer-muted);
+    margin:0 0 .9rem;
+    max-width:42ch;
+    opacity:.95;
+}
+.f-buttons{
+    display:grid; gap:.6rem; max-width:320px;
+}
+.pill{
+    display:inline-block;
+    padding:.78rem 1.15rem;
+    border-radius:999px;
+    background: var(--brand);
+    color:#00363a;
+    font-weight:800;
+    text-transform:uppercase;
+    font-size:.85rem;
+    letter-spacing:.02em;
+    text-decoration:none;
+    text-align:center;
+    transition: transform .08s ease, filter .15s ease, box-shadow .15s ease;
+    box-shadow: 0 0 0 0 transparent;
+}
+.pill:hover{ filter:brightness(1.06); transform: translateY(-1px); }
+.pill:active{ transform: translateY(0); }
+.pill:focus-visible{
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(255,255,255,.2);
+}
+.pill.alt{ background: var(--brand-2); }
+
+/* ========== Franja inferior ========== */
+.footer-bottom{
+    border-top:1px solid var(--footer-line);
+    display:flex; align-items:center; justify-content:space-between;
+    gap:.6rem;
+    max-width:1200px;
+    margin:0 auto;
+    padding:.9rem clamp(16px, 4vw, 28px);
+    color: var(--footer-muted);
+    font-size:.92rem;
+    line-height: 1.3;
+}
+.f-bottom-links{ display:flex; gap:.9rem; }
+.f-bottom-links a{ color:var(--footer-muted); text-decoration:none; }
+.f-bottom-links a:hover{ text-decoration:underline; }
+
+/* Accesibilidad foco */
+.footer-wrap a:focus-visible{
+    outline:2px solid #fff; outline-offset:2px;
+}
+
+/* Prefiere menos animaciones */
+@media (prefers-reduced-motion: reduce){
+    .pill{ transition:none; }
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 1024px){
+    .footer-inner{
+        grid-template-columns: 1.1fr 1fr;   /* 2 columnas */
+    }
+    .footer-inner .f-cta{
+        grid-column: 1 / -1;
+        align-items: flex-start;
+        margin-top: .4rem;
+    }
+    .footer-inner > .f-col:nth-child(3)::before{ display:none; }
+}
+
+@media (max-width: 640px){
+    .footer-inner{
+        grid-template-columns: 1fr;         /* 1 columna */
+        gap: 18px;
+    }
+    .footer-inner > .f-col::before{ display:none; }
+    .f-logo{ margin-bottom: .5rem; }
+    .f-logo-img{ height: 38px; }          /* logo un pelín más pequeño en móvil */
+    .f-buttons{ max-width:100%; }
+    .footer-bottom{ flex-direction:column; align-items:flex-start; gap:.35rem; }
+}

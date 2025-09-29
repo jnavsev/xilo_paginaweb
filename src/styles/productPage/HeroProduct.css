@@ -1,8 +1,8 @@
-.product-hero{
+.product-hero {
     position: relative;
     width: 100%;
-    height: clamp(420px, 60vh, 680px);
-    min-height: 60vh;              /* más lógico que 90vh para portátiles */
+    height: clamp(420px, 60vh, 680px); /* altura flexible y más baja */
+    min-height: 60vh;                 /* asegura buena presencia en portátiles */
     overflow: hidden;
     margin: 0;
 }
@@ -14,53 +14,54 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 40%;
+    object-position: center 40%;   /* encuadre similar al home */
     display: block;
 }
 
-/* Overlay suave */
+/* Overlay con degradado suave como en home */
 .product-hero__overlay{
     position: absolute;
     inset: 0;
     background: linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.25));
 }
 
-/* Texto */
+/* CONTENIDO: abajo-izquierda */
 .product-hero__content{
-    position: relative;
+    position: absolute;
+    inset: 0;
     z-index: 1;
-    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;     /* abajo */
+    align-items: flex-start;       /* izquierda */
+    text-align: left;
     color: #fff;
+
+    /* mismo “feel” que el home */
+    max-width: 760px;
     margin-left: clamp(16px, 6vw, 80px);
     margin-right: clamp(12px, 4vw, 40px);
     margin-bottom: clamp(24px, 6vh, 60px);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 100%;
+    gap: 10px;
 }
 
 .product-hero__content h1{
     font-size: clamp(28px, 5vw, 48px);
     font-weight: 800;
     line-height: 1.15;
-    margin: 0 0 12px;
+    margin: 0;
 }
 
 .product-hero__content p{
     font-size: clamp(14px, 1.8vw, 18px);
-    margin: 8px 0 0;
+    margin: 0;
     color: rgba(255,255,255,.92);
 }
 
-.product-hero__highlight{ color: #8CE4D4; }
+.product-hero__highlight{ color: #8CE4D4; } /* mismo tono verde-azulado */
 
-/* Responsivo fino */
+/* Responsive fino como en tu home */
 @media (max-width: 640px){
-    .product-hero{
-        min-height: 56vh;
-        height: 56vh;
-    }
     .product-hero__content{
         margin-left: clamp(14px, 6vw, 28px);
         margin-right: clamp(14px, 6vw, 28px);
