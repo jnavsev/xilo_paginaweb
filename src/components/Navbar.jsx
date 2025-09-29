@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { useTranslation } from "react-i18next";
-import i18n from "../i18n/i18n"; // asegúrate de tener la init
+import i18n from "../i18n/i18n";
+import logo from "/public/assets/logo/logo-xilo.png"; // 👈 añade tu logo en /src/assets/
 
 export default function Navbar() {
     const { t } = useTranslation("navbar");
@@ -21,18 +22,20 @@ export default function Navbar() {
 
     const changeLang = async (lng) => {
         setLang(lng.toUpperCase());
-        await i18n.changeLanguage(lng); // esto re-renderiza con el nuevo idioma
-        // opcional: persistir
+        await i18n.changeLanguage(lng);
         localStorage.setItem("i18nextLng", lng);
     };
 
     return (
         <header className={`navbar ${solid ? "solid" : ""}`}>
             <div className="nav-container">
-                {/* Izquierda: logo → al inicio del Home */}
+                {/* Izquierda: solo logo → al inicio del Home */}
                 <HashLink to="/#home" className="brand" onClick={close} smooth>
-                    <span className="brand-logo" />
-                    <span className="brand-name">{t("brand")}</span>
+                    <img
+                        src={logo}
+                        alt="Xilo logo"
+                        className="brand-logo"
+                    />
                 </HashLink>
 
                 {/* Center: links (desktop) */}

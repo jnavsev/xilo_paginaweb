@@ -1,3 +1,7 @@
+:root{
+    --nav-h: 60px;         /* altura fija de la barra */
+}
+
 /* ============ NAVBAR TRANSPARENTE SOBRE HERO ============ */
 .navbar{
     position:absolute; top:0; left:0; right:0; z-index:100;
@@ -13,25 +17,34 @@
 
 .nav-container{
     max-width:1200px; margin:0 auto;
-    padding:.7rem 1rem;
+    padding:0 1rem;                    /* sin padding vertical */
     display:flex; align-items:center; justify-content:space-between;
     gap:1rem;
+    height:var(--nav-h);               /* 👈 altura fija */
 }
 
 /* marca */
-.brand{display:inline-flex; align-items:center; gap:.6rem; text-decoration:none; color:inherit;}
-.brand-logo{width:34px; height:34px; border-radius:10px; background:#000; display:inline-block;}
-.brand-name{font-weight:700; color:#fff;}
+.brand{
+    display:inline-flex; align-items:center; gap:.6rem;
+    text-decoration:none; color:inherit;
+    height:100%;                       /* 👈 el link mide lo mismo que la barra */
+}
+
+/* LOGO: ocupar toda la altura del navbar */
+.brand img.brand-logo{
+    height: 75%;     /* 👈 ocupa todo el alto del navbar */
+    width:auto; display:block;
+    object-fit:contain;
+    background:transparent;
+    border-radius:0;
+}
 
 /* enlaces centro */
-.nav-links{
-    display:flex; align-items:center; gap:1rem;
-}
+.nav-links{ display:flex; align-items:center; gap:1rem; }
 .nav-links a{
     text-decoration:none; font-size:.95rem;
     padding:.35rem .55rem; border-radius:8px; line-height:1;
 }
-/* Solo los enlaces normales en blanco (no el botón) */
 .nav-links a:not(.btn-cta){ color:#fff; }
 .nav-links a:not(.btn-cta):hover{ background:rgba(255,255,255,.15); }
 
@@ -45,20 +58,12 @@
 .lang-btn.active{ background:#fff; color:#000; }
 
 /* ============ BOTONES ============ */
-/* Botón global (como antes) */
 .btn-cta{
-    text-decoration:none;
-    font-size:.9rem;
-    font-weight:600;
-    background:#fff;
-    color:#111;
-    padding:.55rem .9rem;
-    border-radius:10px;
+    text-decoration:none; font-size:.9rem; font-weight:600;
+    background:#fff; color:#111; padding:.55rem .9rem; border-radius:10px;
 }
 .btn-cta:hover{ background:#f5f5f5; }
 .btn-cta:focus{ outline:2px solid #fff; outline-offset:2px; }
-
-/* Separación del botón Contactar respecto a "Socios" cuando está en la barra */
 .nav-links .btn-cta{ margin-left:.5rem; }
 
 /* burger móvil */
@@ -76,7 +81,6 @@
 .nav-drawer a:hover{ text-decoration:underline; }
 .drawer-bottom{ margin-top:.6rem; display:grid; gap:.6rem; }
 
-/* Botón ancho del drawer (asegura texto oscuro) */
 .btn-cta.full{
     display:block; text-align:center;
     background:#fff; color:#111; font-weight:600; padding:.7rem 1rem; border-radius:10px;
@@ -84,7 +88,7 @@
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 960px){
-    .nav-links{ display:none; } /* ocultamos enlaces del centro */
+    .nav-links{ display:none; }
     .burger{ display:inline-flex; align-items:center; justify-content:center; }
     .nav-drawer.open{ display:block; }
 }
