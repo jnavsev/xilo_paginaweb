@@ -68,7 +68,7 @@
 
 /* Logo con imagen */
 .f-logo-img{
-    height: 120px;       /* ajusta si quieres más grande/pequeño */
+    height: 95px;       /* ajusta si quieres más grande/pequeño */
     width: auto;
     display: block;
     object-fit: contain;
