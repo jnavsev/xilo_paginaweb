@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { useTranslation, Trans } from "react-i18next";
+import ReCAPTCHA from "react-google-recaptcha";
 
 // API endpoint configurable desde .env
 const API_URL = import.meta.env.VITE_CONTACT_API || "/api/contact";
+const SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 export default function ContactPage() {
     const { t } = useTranslation("contact");
     const [form, setForm] = useState({ name: "", email: "", message: "", company: "" });
     const [loading, setLoading] = useState(false);
+    const [captchaToken, setCaptchaToken] = useState(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -19,6 +22,12 @@ export default function ContactPage() {
         if (loading) return;
         setLoading(true);
 
+        if (!captchaToken) {
+            alert("Por favor, completa el reCAPTCHA.");
+            setLoading(false);
+            return;
+        }
+
         try {
             const res = await fetch(API_URL, {
                 method: "POST",
@@ -27,7 +36,8 @@ export default function ContactPage() {
                     name: form.name.trim(),
                     email: form.email.trim(),
                     message: form.message.trim(),
-                    company: form.company // honeypot
+                    company: form.company,
+                    captcha: captchaToken,
                 })
             });
 
@@ -35,6 +45,7 @@ export default function ContactPage() {
 
             alert(t("alerts.success"));
             setForm({ name: "", email: "", message: "", company: "" });
+            setCaptchaToken(null);
         } catch (err) {
             console.error(err);
             alert(t("alerts.error"));
@@ -45,7 +56,6 @@ export default function ContactPage() {
 
     return (
         <main className="contact-page">
-            {/* Ola superior opcional */}
             <div className="wave-top-contact" aria-hidden="true">
                 <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
                     <path d="M0,40 C240,100 480,100 720,60 C960,20 1200,20 1440,60 L1440,0 L0,0 Z" />
@@ -58,7 +68,6 @@ export default function ContactPage() {
             </section>
 
             <section className="contact-grid container-contact">
-                {/* Ilustración */}
                 <div className="contact-illustration">
                     <img
                         src="/assets/contact/contact_page.png"
@@ -67,7 +76,6 @@ export default function ContactPage() {
                     />
                 </div>
 
-                {/* Formulario */}
                 <div className="contact-card">
                     <div className="card-head">
                         <p>
@@ -123,9 +131,13 @@ export default function ContactPage() {
                             required
                         />
 
-                        {/* reCAPTCHA placeholder */}
-                        <div className="recaptcha-placeholder" aria-hidden="true">
-                            {t("recaptchaPlaceholder")}
+                        {/* reCAPTCHA widget */}
+                        <div className="recaptcha-wrapper" style={{ margin: "1.5rem 0" }}>
+                            <ReCAPTCHA
+                                sitekey={SITE_KEY}
+                                onChange={(token) => setCaptchaToken(token)}
+                                theme="light"
+                            />
                         </div>
 
                         <button type="submit" className="btn-primary" disabled={loading}>
@@ -135,7 +147,6 @@ export default function ContactPage() {
                 </div>
             </section>
 
-            {/* Ola inferior opcional */}
             <div className="wave-bottom-contact" aria-hidden="true">
                 <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
                     <path d="M0,60 C240,20 480,20 720,60 C960,100 1200,100 1440,60 L1440,120 L0,120 Z" />
