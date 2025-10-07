@@ -15,7 +15,7 @@
     },
     "hardware": {
       "title": "Hardware embebido",
-      "desc": "Diseñado para Raspberry Pi y Toradex iMX8M Plus, integrando pantalla y batería."
+      "desc": "Diseñado para Toradex iMX8M Plus, integrando pantalla y batería."
     },
     "impact": {
       "title": "Impacto en salud pública",

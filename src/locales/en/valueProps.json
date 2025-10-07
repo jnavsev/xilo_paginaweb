@@ -15,7 +15,7 @@
     },
     "hardware": {
       "title": "Embedded hardware",
-      "desc": "Designed for Raspberry Pi and Toradex iMX8M Plus, integrating screen and battery."
+      "desc": "Designed for Toradex iMX8M Plus, integrating screen and battery."
     },
     "impact": {
       "title": "Public health impact",

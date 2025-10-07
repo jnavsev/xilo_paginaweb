@@ -40,7 +40,7 @@ export default function Navbar() {
 
                 {/* Center: links (desktop) */}
                 <nav className="nav-links">
-                    <HashLink to="/#home" smooth>{t("home")}</HashLink>
+                    <HashLink to="/" smooth>{t("home")}</HashLink>
                     <NavLink to="/product">{t("product")}</NavLink>
                     <NavLink to="/knowUs">{t("team")}</NavLink>
                     <HashLink to="/#sponsors" smooth>{t("partners")}</HashLink>
@@ -76,7 +76,7 @@ export default function Navbar() {
 
             {/* Mobile drawer */}
             <div className={`nav-drawer ${open ? "open" : ""}`}>
-                <HashLink to="/#home" onClick={close} smooth>{t("home")}</HashLink>
+                <HashLink to="/" onClick={close} smooth>{t("home")}</HashLink>
                 <NavLink to="/product" onClick={close}>{t("product")}</NavLink>
                 <NavLink to="/knowUs" onClick={close}>{t("team")}</NavLink>
                 <HashLink to="/#sponsors" onClick={close} smooth>{t("partners")}</HashLink>
