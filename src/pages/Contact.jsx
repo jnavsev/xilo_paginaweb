@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useTranslation, Trans } from "react-i18next";
 import ReCAPTCHA from "react-google-recaptcha";
 
-// API endpoint configurable desde .env
 const API_URL = import.meta.env.VITE_CONTACT_API || "/api/contact";
 const SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
@@ -11,6 +10,7 @@ export default function ContactPage() {
     const [form, setForm] = useState({ name: "", email: "", message: "", company: "" });
     const [loading, setLoading] = useState(false);
     const [captchaToken, setCaptchaToken] = useState(null);
+    const captchaRef = useRef(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -36,15 +36,18 @@ export default function ContactPage() {
                     name: form.name.trim(),
                     email: form.email.trim(),
                     message: form.message.trim(),
-                    company: form.company,
+                    company: form.company,      // honeypot
                     captcha: captchaToken,
-                })
+                }),
             });
 
             if (!res.ok) throw new Error("Bad response");
 
             alert(t("alerts.success"));
             setForm({ name: "", email: "", message: "", company: "" });
+
+            // Reset reCAPTCHA y token
+            captchaRef.current?.reset();
             setCaptchaToken(null);
         } catch (err) {
             console.error(err);
@@ -131,9 +134,10 @@ export default function ContactPage() {
                             required
                         />
 
-                        {/* reCAPTCHA widget */}
+                        {/* reCAPTCHA */}
                         <div className="recaptcha-wrapper" style={{ margin: "1.5rem 0" }}>
                             <ReCAPTCHA
+                                ref={captchaRef}
                                 sitekey={SITE_KEY}
                                 onChange={(token) => setCaptchaToken(token)}
                                 theme="light"
@@ -141,7 +145,9 @@ export default function ContactPage() {
                         </div>
 
                         <button type="submit" className="btn-primary" disabled={loading}>
-                            {loading ? t("form.sending", { defaultValue: "Enviando..." }) : t("form.submit")}
+                            {loading
+                                ? t("form.sending", { defaultValue: "Enviando..." })
+                                : t("form.submit")}
                         </button>
                     </form>
                 </div>
