@@ -1,6 +1,5 @@
 import { Resend } from "resend";
 
-//Hola
 
 export default async function handler(req, res) {
     if (req.method !== "POST") {
