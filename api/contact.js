@@ -1,4 +1,22 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
+
+let transporter;
+
+// Crear el transporter una sola vez (para no recrearlo en cada llamada)
+function getTransporter() {
+    if (!transporter) {
+        transporter = nodemailer.createTransport({
+            host: process.env.SMTP_HOST,
+            port: Number(process.env.SMTP_PORT) || 587,
+            secure: false, // true si usas puerto 465
+            auth: {
+                user: process.env.SMTP_USER,
+                pass: process.env.SMTP_PASS,
+            },
+        });
+    }
+    return transporter;
+}
 
 export default async function handler(req, res) {
     if (req.method !== "POST") {
@@ -8,64 +26,21 @@ export default async function handler(req, res) {
     try {
         const { name, email, message, company, captcha } = req.body || {};
 
-        // Extra: log de entrada
-        console.log("➡️ Incoming request:", { name, email, message, company, captcha: !!captcha });
-
-        const {
-            RECAPTCHA_SECRET_KEY,
-            RESEND_API_KEY,
-            MAIL_FROM,
-            CONTACT_TO,
-        } = process.env;
-
-        // LOG de todas las variables
-        console.log("🔧 ENV VARIABLES LOADED:", {
-            RECAPTCHA_SECRET_KEY: !!RECAPTCHA_SECRET_KEY,
-            RESEND_API_KEY: !!RESEND_API_KEY,
-            MAIL_FROM,
-            CONTACT_TO,
-        });
-
-        // Validar env vars
-        const missingVars = [];
-        if (!RECAPTCHA_SECRET_KEY) missingVars.push("RECAPTCHA_SECRET_KEY");
-        if (!RESEND_API_KEY) missingVars.push("RESEND_API_KEY");
-        if (!MAIL_FROM) missingVars.push("MAIL_FROM");
-        if (!CONTACT_TO) missingVars.push("CONTACT_TO");
-
-        if (missingVars.length > 0) {
-            console.error("❌ Missing environment variables:", missingVars);
-            return res.status(500).json({
-                error: "Server configuration error",
-                missing: missingVars,
-            });
-        }
-
-        // Validación CAPTCHA
+        // 1) CAPTCHA
         if (!captcha) {
             return res.status(400).json({ error: "Missing captcha token" });
         }
 
-        const verifyUrl =
-            `https://www.google.com/recaptcha/api/siteverify` +
-            `?secret=${RECAPTCHA_SECRET_KEY}&response=${captcha}`;
-
-        console.log("➡️ Sending CAPTCHA verification request");
+        const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captcha}`;
         const captchaRes = await fetch(verifyUrl, { method: "POST" });
-
-        console.log("🔍 CAPTCHA STATUS:", captchaRes.status);
-
         const captchaJson = await captchaRes.json();
-        console.log("🔍 CAPTCHA RESPONSE:", captchaJson);
 
         if (!captchaJson.success) {
-            console.error("❌ CAPTCHA FAILED:", captchaJson);
-            return res.status(400).json({ error: "CAPTCHA verification failed", details: captchaJson });
+            return res.status(400).json({ error: "CAPTCHA verification failed" });
         }
 
-        // Honeypot
+        // 2) Honeypot
         if (company) {
-            console.warn("⚠️ Honeypot triggered");
             return res.status(400).json({ error: "Spam detected" });
         }
 
@@ -73,7 +48,6 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: "Missing fields" });
         }
 
-        // Sanitizado
         const safe = (str = "") =>
             String(str)
                 .replace(/&/g, "&amp;")
@@ -82,43 +56,31 @@ export default async function handler(req, res) {
                 .replace(/"/g, "&quot;")
                 .replace(/'/g, "&#039;");
 
-        console.log("➡️ Creating Resend instance");
-        const resend = new Resend(RESEND_API_KEY);
+        const fromName = process.env.MAIL_FROM_NAME || "XILO Contact";
+        const to = process.env.CONTACT_TO || process.env.SMTP_USER;
 
-        console.log("➡️ Sending email via Resend");
-        const { data, error } = await resend.emails.send({
-            from: MAIL_FROM,
-            to: CONTACT_TO,
+        const mailOptions = {
+            from: `"${fromName}" <${process.env.SMTP_USER}>`,
+            to,
             subject: `Nuevo contacto: ${safe(name)}`,
-            reply_to: email,
+            replyTo: email,
             html: `
         <h2>Nuevo mensaje de contacto</h2>
         <p><b>Nombre:</b> ${safe(name)}</p>
         <p><b>Email:</b> ${safe(email)}</p>
         <p><b>Mensaje:</b><br/>${safe(message).replace(/\n/g, "<br/>")}</p>
       `,
-        });
+        };
 
-        console.log("🔍 RESEND RESPONSE:", { data, error });
+        const transport = getTransporter();
+        await transport.sendMail(mailOptions);
 
-        if (error) {
-            console.error("❌ RESEND API ERROR:", error);
-
-            return res.status(500).json({
-                error: "Mail send failed",
-                resendError: error,
-            });
-        }
-
-        console.log("✅ Mail sent successfully:", data?.id);
-        return res.status(200).json({ ok: true, id: data?.id });
-
+        return res.status(200).json({ ok: true });
     } catch (err) {
-        console.error("🔥 Unhandled exception:", err);
-
+        console.error("Mail send failed:", err);
         return res.status(500).json({
-            error: "Unhandled server error",
-            details: err.toString(),
+            error: "Mail send failed",
+            detail: err?.message || "Unknown error",
         });
     }
 }
