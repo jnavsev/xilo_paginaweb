@@ -2,17 +2,18 @@ import nodemailer from "nodemailer";
 
 let transporter;
 
-// Crear el transporter una sola vez (para no recrearlo en cada llamada)
 function getTransporter() {
     if (!transporter) {
         transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port: Number(process.env.SMTP_PORT) || 587,
-            secure: false, // true si usas puerto 465
+            secure: false, // pon true si usas 465
             auth: {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASS,
             },
+            // Si tu proveedor usa certificados raros, puedes probar:
+            // tls: { rejectUnauthorized: false },
         });
     }
     return transporter;
@@ -26,7 +27,7 @@ export default async function handler(req, res) {
     try {
         const { name, email, message, company, captcha } = req.body || {};
 
-        // 1) CAPTCHA
+        // === 1) VALIDACIONES (CAPTCHA + HONEYPOT + CAMPOS) ===
         if (!captcha) {
             return res.status(400).json({ error: "Missing captcha token" });
         }
@@ -35,11 +36,12 @@ export default async function handler(req, res) {
         const captchaRes = await fetch(verifyUrl, { method: "POST" });
         const captchaJson = await captchaRes.json();
 
+        console.log("CAPTCHA JSON:", captchaJson);
+
         if (!captchaJson.success) {
             return res.status(400).json({ error: "CAPTCHA verification failed" });
         }
 
-        // 2) Honeypot
         if (company) {
             return res.status(400).json({ error: "Spam detected" });
         }
@@ -72,8 +74,18 @@ export default async function handler(req, res) {
       `,
         };
 
+        console.log("Enviando correo con opciones:", {
+            host: process.env.SMTP_HOST,
+            port: process.env.SMTP_PORT,
+            user: process.env.SMTP_USER,
+            to,
+        });
+
         const transport = getTransporter();
+
         await transport.sendMail(mailOptions);
+
+        console.log("Correo enviado correctamente");
 
         return res.status(200).json({ ok: true });
     } catch (err) {
