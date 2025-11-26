@@ -177,7 +177,7 @@ export default function ContactPage() {
                     >
                         <div className="contact-modal-left">
                             <img
-                                src="/assets/contact/success.png" // pon aquí tu dibujo/ilustración
+                                src="/assets/contact/envio.png" // pon aquí tu dibujo/ilustración
                                 alt="Mensaje enviado correctamente"
                                 loading="lazy"
                             />
